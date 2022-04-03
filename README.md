@@ -15,14 +15,14 @@ The project aims at finding the best set of money pieces such that their sum is 
 
 Different graph algorithms have been tested, from the simple ones to the most sophisticated. The algorithm is able to minimize either the amount of pieces/baknotes or the sum of their weights.
 
-## SQL database
+## 03. SQL database
 
 Exploring SQL syntax on Python and applying it to handle a databse with hotels' informations.
 
-## Hangman game
+## 04. Hangman game
 
 Creation of the hangman game using OOP and tkinter on Python.
 
-## Website project
+## 05. Website project
 
 Creation of a website which allows to vizualize polution data in Lyon. The website uses html, css and javascript. The server is coded in Python, and handles a SQL database to provide raw data and graphs.
