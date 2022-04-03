@@ -1,6 +1,6 @@
 # CentraleLyon-miniProjects
 
-Some of python and javascript mini-projects runned at ECL. 
+Some mini-projects in computer science runned at ECL
 
 The projects have been created alone except for the website project, which has been created in a team of 3 members (their name are mentioned in the project's readme file).
 
