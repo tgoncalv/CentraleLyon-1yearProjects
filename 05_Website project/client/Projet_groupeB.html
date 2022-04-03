@@ -1,0 +1,175 @@
+﻿<!DOCTYPE html>
+
+<head>
+
+<script src="leaflet.js"> // Bibliothèque Leaflet : http://leafletjs.com/ </script>
+
+<title> Projet B Groupe D1b</title>
+<link rel="stylesheet" type="text/css" href="leaflet.css" /> 
+<link rel="stylesheet" type="text/css" href="style.css"/>
+
+<meta charset="utf-8">
+
+</head>
+  
+<!-- Récupération de la liste des lieux insolites au chargement de la page -->
+<body onload="load_data(); load_data_page2();">
+
+  <img src="images/logo_centrale.png" alt="logo de centrale" class="logo">
+  <h1>Mesure de la pollution atmosphérique en Auvergne-Rhône-Alpes</h1>
+
+
+  <div>
+
+  <!-- Zone pour l'insertion de la carte OSM via Leaflet -->
+
+  <div id="map" class="center"></div>  
+  <div class="center">
+  <input type="button" value="Afficher les marqueurs" onclick="markers_load();" class="button">
+  <input type="button" value="Cacher les marqueurs" onclick="markers_unload();" class="button">
+</div>
+  <!-- <div id="test" class="test"></div> -->
+  
+  <div id="reponse">
+    </i><br><br>
+
+    <p class='menu'>
+      <span id="Page1_menu" class="tab_menu_on" onclick="show('Page1');">Historique des concentrations des polluants</span> 
+      <span id="Page2_menu" class="tab_menu" onclick="show('Page2');">Carte de pollution</span> 
+      <span id="Page3_menu" class="tab_menu" onclick="show('Page3');">Comparaison de données</span>
+      <span id="Pagei_menu" class="tab_menu" onclick="show('Pagei');">info</span>
+    </p>
+
+    <div id="Page1" class="page">
+      <h2>Historique des concentrations des polluants pour la station:<select class="selector" name="station" id="station_selector">
+        <option value="None">CHOISIR UNE STATION</option>
+      </select></h2>
+
+      <div id="page1_none">
+        <p>Veuillez sélectionner une station.</p>
+      </div>
+
+      <div id="page1_graph" class="hide">
+
+        <p class="Date">Type de polluant: <select class="selector" name="nom_polluant_selector" id="nom_polluant_selector">
+          <option value="None">--------</option>
+        </select></p>
+
+        <p class="Date">Date de début: <input type="date" id="Date_deb_hist" value="yyyy-MM-dd" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"></p>
+
+        <p class="Date">Date de fin: <input type="date" id="Date_fin_hist" value="yyyy-MM-dd" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"></p>
+
+        <p class="Date">Pas de temps: <select class="selector" name="Date_pas_hist" id='Date_pas_hist'>
+          <option value="day">Jour</option>
+          <option value="week">Semaine</option>
+          <option value="month">Mois</option>
+        </select></p>
+
+        <div id="hist_graph">
+
+          <p id="title_graph" class="title"></p>
+
+          <img id="img_graph" class="img_graph">
+
+        </div>
+      </div>
+    </div>
+
+    <div id="Page2" class="page" style="display:none">
+
+      <h2>Carte de pollution</h2>
+
+      <div id="parameters" class="parameters">
+      <p class="Date">Type de polluant: <select class="selector" name="nom_polluant_selector" id="nom_polluant_selector_page2">
+        <option value="None">CHOISIR UN POLLUANT</option>
+      </select></p>
+
+      <br><p class = "Date">Date:
+        <input type="button" title="Date minimale" value="&#8920" class="button_arrow" onClick="change_date('min')">
+        <input type="button" title="-10 jours" value="&#8810" class="button_arrow" onClick="change_date(-10)">
+        <input type="button" title="-1 jour" value="&lt" class="button_arrow" onClick="change_date(-1)">
+        <!-- <input type="date" id="date_carte" value="yyyy-MM-dd" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"> -->
+        <input type="date" id="date_carte" value="2019-12-31" min="2019-12-01" max="2021-02-01" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}">
+        <input type="button" title="+1 jour" value="&gt" class="button_arrow" onClick="change_date(1)">
+        <input type="button" title="+10 jours" value="&#8811" class="button_arrow" onClick="change_date(10)">
+        <input type="button" title="Date maximale" value="&#8921" class="button_arrow" onClick="change_date('max')">
+      </p>
+      <br>
+      <p class="input">Rayon du cercle (100-10 000m):
+      <input type="number" id="select_radius" name="select_radius" min="100" max="10000" value="1000"></p>
+      </div>
+
+        <div class="Legend" style="display:none" id="Legend"><u>Légende:</u>
+          <br><p id="green" class="color">Vert:</p>
+          <br><p id="yellow" class="color">Jaune:</p>
+          <br><p id="orange" class="color">Orange:</p>
+          <br><p id="red" class="color">Rouge:</p>
+        </div>
+
+
+    </div>
+
+    <div id="Page3" class="page" style="display:none">
+
+      <h2>Comparaison des données entre plusieurs stations pour le polluant:<select class="selector" name="nom_polluant_selector" id="nom_polluant_selector_page3">
+        <option value="None">CHOISIR UN POLLUANT</option></select>
+      </h2>
+
+      <form name="choix_liste_stations" class="box_stations">
+        <table><tr>
+        <td class="align"><b>Stations disponibles</b><br>
+        <select name="liste1" id="list_choix_box" size=6 class="list_stat_select">
+        </select>
+        </td>
+        <td class="align">
+        <input type="button" value="Ajouter >>>" onclick="Move(this.form.liste1,this.form.liste2)">
+        <br><br>
+        <input type="button" value="&lt;&lt;&lt; Enlever" onclick="Move(this.form.liste2,this.form.liste1)">
+        </td>
+        <td class="align"><b>Stations sélectionnées</b><br>
+        <select name="liste2" id="list_idnum_box" size=6 class="list_stat_select">
+        </select>
+        </td>
+        </tr></table>
+      </form>
+
+      <div id="page3_dates" class="Date">
+
+        <p class="Date">Date de début: <input type="date" id="Date_deb_page3" value="yyyy-MM-dd" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"></p>
+
+        <p class="Date">Date de fin: <input type="date" id="Date_fin_page3" value="yyyy-MM-dd" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"></p>
+
+        <p class="Date">Pas de temps: <select class="selector" name="Date_pas_page3" id='Date_pas_page3'>
+          <option value="day">Jour</option>
+          <option value="week">Semaine</option>
+          <option value="month">Mois</option>
+        </select></p>
+      </div>
+
+      <div id="page3_resultat">
+
+        <div id="page3_graph">
+
+          <br><br><br><br><p id="title_graph_page3" class="title"></p>
+
+          <img id="img_graph_page3" class="img_graph">
+
+        </div>
+      </div>
+    </div>
+
+    <div id="Pagei" class="page" style="display:none">
+    <h2>Informations complémentaires</h2>
+    <u><b>Groupe:</u></b> D1b
+    <br><br><u><b>Projet:</u></b> B (Mesure de la pollution atmosphérique en Auvergne-Rhône-Alpes)
+    <br><br><u><b>Membres du groupe:</u></b> Timothée BARRY - Taïga GONCALVES - Jonathan GUERIN
+    <br><br><u><b>Professeur encadrant:</u></b> Mr.Romain VUILLEMOT
+    </div>
+  </div>
+
+  </div>
+ </body>
+
+ <script src="script.js"> //script de la page </script>
+ 
+ <!-- v 
