@@ -31,3 +31,11 @@ Creation of a website which allows to vizualize polution data in Lyon. The websi
 ## 06. Backtracking algorithm
 
 Understanding the backtracking algorithm and implementing to solve the Knight's tour problem. The problem is the following: given a chessboard with a specific number of squares, a knight needs to visit every squares exactly once. 
+
+## 07. Locating text in images
+
+A MatLab project aiming at locating text in images using basic algorithms.
+
+## 08. HOG
+
+Use Histograms of Oriented Gradients (HOG) to analyze images and determine their similarity. The project has been coded in MatLab.
