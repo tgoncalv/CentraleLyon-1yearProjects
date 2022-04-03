@@ -15,7 +15,7 @@
 ---
 L'objectif de ce BE est de réaliser le ```jeu du Pendu```. Voici donc une représentation de la structure du programme sous forme d'un diagramme de Classe UML:
 
-![Diagramme UML](images/diagramme UML.png)
+![Diagramme UML](images/diagramme%20UML.png)
 
 Nous ne détaillerons pas le codage de la partie fonctionnelle du jeu, celle-ci étant déjà détaillée dans l'énoncé. Nous allons donc nous intéresser sur les trois fonctionnalités optionnelles qui ont été ajoutées dans le programme.
 ## 2. Apparence
