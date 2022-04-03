@@ -167,7 +167,7 @@ Le codage de cette méthode est simple: il suffit d'écrire le contraire de la m
 ## 3. Score joueur
 ---
 Pour finir, nous allons ajouter la possibilité de se créer un identifiant et d'afficher son score. Ces données seront stockées dans la base de données SQL appelée ```pendu.db``` dont sa structure est la suivante:
-![Base de données](https://nsa40.casimages.com/img/2020/10/27/201027090703640855.png)
+![Base de données](https://github.com/tgoncalv/CentraleLyon-miniProjects/blob/main/04_Hangman%20game/images/TableSQLJeuPendu.png)
 Créons d'abord les objets suivants:
 ```python
         self.__score = Frame(self)
@@ -262,7 +262,7 @@ Cette méthode permet d'entrer un nom et un prenom pour son identifiant. Le num�
 ---
 Nous avons donc réalisé un jeu du pendu avec trois fonctionnalités facultatives: la première permet de changer les couleurs de l'interface. La deuxième permet de tricher lors d'une partie, en effectuant un retour en arrière. La dernière permet d'afficher le score d'un identifiant au choix.
 
-![Jeu du pendu](https://nsa40.casimages.com/img/2020/10/27/201027093206109645.jpg)
+![Jeu du pendu](https://github.com/tgoncalv/CentraleLyon-miniProjects/blob/main/04_Hangman%20game/images/Jeu du pendu.png)
 
 
 
