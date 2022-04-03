@@ -262,7 +262,7 @@ Cette méthode permet d'entrer un nom et un prenom pour son identifiant. Le num�
 ---
 Nous avons donc réalisé un jeu du pendu avec trois fonctionnalités facultatives: la première permet de changer les couleurs de l'interface. La deuxième permet de tricher lors d'une partie, en effectuant un retour en arrière. La dernière permet d'afficher le score d'un identifiant au choix.
 
-![Jeu du pendu](https://github.com/tgoncalv/CentraleLyon-miniProjects/blob/main/04_Hangman%20game/images/Jeu du pendu.png)
+![Jeu du pendu](https://github.com/tgoncalv/CentraleLyon-miniProjects/blob/main/04_Hangman%20game/images/Jeu\ du\ pendu.png)
 
 
 
