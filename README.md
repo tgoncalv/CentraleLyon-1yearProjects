@@ -27,3 +27,7 @@ Creation of the hangman game using OOP and tkinter on Python.
 ## 05. Website project
 
 Creation of a website which allows to vizualize polution data in Lyon. The website uses html, css and javascript. The server is coded in Python, and handles a SQL database to provide raw data and graphs.
+
+## 06. Backtracking algorithm
+
+Understanding the backtracking algorithm and implementing to solve the Knight's tour problem. The problem is the following: given a chessboard with a specific number of squares, a knight needs to visit every squares exactly once. 
