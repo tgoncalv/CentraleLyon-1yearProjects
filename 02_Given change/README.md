@@ -90,7 +90,10 @@ def Monnaie_arbre(S,M):
                 F.append(m-p)
     return A
 ```
-Si nous utilisions la liste `S = [1,7,23]`, le dictionnaire renvoyé par cette fonction serait donc équivalent au graphe suivant: ![arbre](https://i.ibb.co/1vbQtM6/TD05-td5.jpg)
+Si nous utilisions la liste `S = [1,7,23]`, le dictionnaire renvoyé par cette fonction serait donc équivalent au graphe suivant: 
+
+![arbre](graph.jpg)
+
 Maintenant, nous allons ajouter des étapes dans cette fonction pour pouvoir réaliser le parcours en largeur:
 ```python
 # Exercice 2.2
