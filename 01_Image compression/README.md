@@ -6,7 +6,9 @@
 ## 1. Introduction
 ---
 Dans ce TD nous allons implémenter une méthode de compression d'image par segmentation. Tout au long du TD, nous testerons cette méthode à l'aide de l'image suivante:
-![lyon.bmp](https://i.ibb.co/BPNF7WJ/lyon.png) 
+
+![lyon.bmp](https://github.com/tgoncalv/CentraleLyon-miniProjects/blob/main/01_Image%20compression/images/lyon.bmp) 
+
 Cette image est nommée *lyon.bmp* dans le dossier zip. On s'attend à ce que la compression uniformise la couleur du ciel, du bâtiment, du sol et du lion. Cette image est de taille 909 x 1092 pixels.
 
 ## 2. Chargement d'une image et fonctions utilitaires
@@ -66,7 +68,8 @@ class Node:
 ```
 La fonction schema (codée dans l'exercice 3.6) permet de mieux visualier l'arbre. A l'aide de cette fonction, nous avons recréé l'arbre suivant:
 
-![Arbre](https://i.ibb.co/nPjDgRg/arbre.png)
+![Arbre](https://github.com/tgoncalv/CentraleLyon-miniProjects/blob/main/01_Image%20compression/images/arbre.png)
+
 Le code obtenu est le suivant (exercice 2.2):
 ```python
     racine = Node(0, 0, 4, 4, 'grey',
@@ -344,7 +347,7 @@ La SSIM varie de 0 à 1, et la qualité de l'image est meilleure quand la SSIM e
 ```
 Nous pouvons maintenant tracer le graphe des PSNR et SSIM en fonction de différents seuils (Exercice 3.5):
 
-![SSIM](https://i.ibb.co/JQSxWZp/SSIM.png) ![PSNR](https://i.ibb.co/Zzt5PJr/PSNR.png)
+![SSIM](https://github.com/tgoncalv/CentraleLyon-miniProjects/blob/main/01_Image%20compression/images/SSIM.png) ![PSNR](https://github.com/tgoncalv/CentraleLyon-miniProjects/blob/main/01_Image%20compression/images/PSNR.png)
 
 Nous pouvons remarquer que la qualité de l'image ne suit pas une décroissance linéaire, comme pourrait nous faire croire le graphe du PSNR (à droite). Le choix du seuil est donc important pour ne pas dégrader nettement la qualité de l'image.
 
@@ -360,11 +363,11 @@ Nous pouvons également visualiser l'image sous forme d'une chaîne au format DO
 ---
 Dans ce TD, nous avons mis en place un programme permettant de compresser des images. Nous nous sommes d'abord intéréssé à la réalisation d'une simple quadripartition (partie 3). Le résultat de la compression est le suivant:
 
-![Node](https://i.ibb.co/S6xZ1Qy/PSNR-img.png)
+![Node](https://github.com/tgoncalv/CentraleLyon-miniProjects/blob/main/01_Image%20compression/images/PSNR_img.png)
 
 Ensuite, nous avons mis en place des moyens pour améliorer cette compression tout en respectant la contrainte d'un nombre de noeud inférieur à 10 000. Le résultat est le suivant:
 
-![Node2](https://i.ibb.co/vwXCDFx/SSIM-img.png)
+![Node2](https://github.com/tgoncalv/CentraleLyon-miniProjects/blob/main/01_Image%20compression/images/SSIM_img.png)
 
 Dans les deux cas, la compression ne permet pas de garder une image suffisament nette la contrainte imposée. Toutefois, nous pouvons garder une qualité de l'image satisfaisante en allégeant cette contrainte (et donc en diminuant le seuil).
 
