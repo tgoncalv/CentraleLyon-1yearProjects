@@ -90,7 +90,10 @@ def Monnaie_arbre(S,M):
                 F.append(m-p)
     return A
 ```
-Si nous utilisions la liste `S = [1,7,23]`, le dictionnaire renvoyé par cette fonction serait donc équivalent au graphe suivant: ![arbre](https://i.ibb.co/1vbQtM6/TD05-td5.jpg)
+Si nous utilisions la liste `S = [1,7,23]`, le dictionnaire renvoyé par cette fonction serait donc équivalent au graphe suivant: 
+
+![arbre](graph.jpg)
+
 Maintenant, nous allons ajouter des étapes dans cette fonction pour pouvoir réaliser le parcours en largeur:
 ```python
 # Exercice 2.2
@@ -134,7 +137,10 @@ print(Monnaie_parcours_largeur(S,28))
 Le résultat affiché est `([0, 4, 0], 4)`. Contrairement à l'algorithme de Glouton, le parcours en largeur permet bien de trouver la solution optimale pour le rendu de monnaie. Le problème maintenant est sa complexité. Nous allons donc étudier un autre algorithme.
 ## 3. Algorithme de Programmation Dynamique
 ---
-Cet algorithme repose sur un principe de mémoïsation, permettant de contourner un problème de récursivité qui diminuerait considérablement la vitesse de résolution du problème étudié. Ce nouvel algorithme se repose sur la création d'une matrice équivalente au tableau suivant: ![tableau](https://i.ibb.co/9V0wT2G/tableau.png)
+Cet algorithme repose sur un principe de mémoïsation, permettant de contourner un problème de récursivité qui diminuerait considérablement la vitesse de résolution du problème étudié. Ce nouvel algorithme se repose sur la création d'une matrice équivalente au tableau suivant: 
+
+![tableau](tableau.png)
+
 Les lignes correspondent aux pièces disponibles, et les colonnes correspondent à la valeur que nous voulons obtenir. Pour une case [i][m] (i étant la ligne, et m la colonne), la valeur affichée correspond au nombre de pièces total à utiliser pour optimiser la résolution du problème. Pour choisir cette valeur, on procède de la manière suivante:
 1. On regarde combien de pièce on doit utiliser pour obtenir la valeur m sans utiliser la pièce i (i.e. on regarde la valeur de la case [i-1][m])
 2. On regarde combien de pièce on doit utiliser pour obtenir la valeur m-S[i] (i.e. on regarde la valeur de la case [i][m-S[i]), puis on rajoute 1 à cette valeur, car on utilise une pièce de type i pour passer de m-S[i] à m.

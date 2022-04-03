@@ -15,7 +15,7 @@
 ---
 L'objectif de ce BE est de réaliser le ```jeu du Pendu```. Voici donc une représentation de la structure du programme sous forme d'un diagramme de Classe UML:
 
-![Diagramme UML](https://nsa40.casimages.com/img/2020/10/26/201026115307558467.png)
+![Diagramme UML](https://github.com/tgoncalv/CentraleLyon-miniProjects/blob/main/04_Hangman%20game/images/Diagramme%20UML.png)
 
 Nous ne détaillerons pas le codage de la partie fonctionnelle du jeu, celle-ci étant déjà détaillée dans l'énoncé. Nous allons donc nous intéresser sur les trois fonctionnalités optionnelles qui ont été ajoutées dans le programme.
 ## 2. Apparence
