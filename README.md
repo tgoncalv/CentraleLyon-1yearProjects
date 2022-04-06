@@ -39,3 +39,7 @@ A MatLab project aiming at locating text in images using basic algorithms.
 ## 08. HOG
 
 Use Histograms of Oriented Gradients (HOG) to analyze images and determine their similarity. The project has been coded in MatLab.
+
+## 09. Object detection
+
+Use SIFT operation to find objects. More precisely, the study aimed at finding a character named "Wally" in a crowded scene.
